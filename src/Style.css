@@ -1,0 +1,80 @@
+:root {
+  --Black: #0b090a;
+  --BlackGray: #161a1d;
+  --Crimson: #660708;
+  --DarkRed: #a4161a;
+  --red1: #a4161a;
+  --red2: #ba181b;
+  --LightRed: #e5383b;
+  --DarkGray: #b1a7a6;
+  --Gray: #d3d3d3;
+  --LightGray: #f5f3f4;
+  --White: #ffffff;
+}
+@font-face {
+  font-family: IranBlack;
+  src: url(./css/fonts/IRANBlack.ttf);
+}
+body {
+  font-family: IranBlack;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+.sidebar_section {
+  position: fixed;
+  background-color: var(--DarkGray);
+  background-size: cover;
+  color: var(--White);
+  width: 280px;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: block;
+  transition: all 300ms ease;
+  z-index: 999;
+}
+.ul_content {
+  padding: 0;
+}
+.li_person {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.li_person p {
+  margin-left: 10px;
+  font-size: 15px;
+}
+.image_profile {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+li {
+  margin: 20px 20px;
+  padding: 10px 10px;
+}
+li a {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.li_content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.div_li :hover {
+  cursor: pointer;
+  background: var(--LightRed);
+  border-radius: 10px;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
