@@ -7,6 +7,8 @@ import Todo from "./css/Icons/todo.png";
 import Logout from "./css/Icons/logout.png";
 import "./Style.css";
 import { MainContext } from "./Context/MainContext";
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   return (
@@ -21,31 +23,31 @@ const Sidebar = () => {
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={User} alt="user" />
-            <a href="#">Users</a>
+            <Link to="/">Users</Link>
           </li>
         </div>
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={Post} alt="post" />
-            <a href="#">Posts</a>
+            <Link to="/post">Posts</Link>
           </li>
         </div>
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={Gallery} alt="gallery" />
-            <a href="#">Gallery</a>
+            <Link to="/gallery">Gallery</Link>
           </li>
         </div>
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={Todo} alt="todo" />
-            <a href="#">Todos</a>
+            <Link to="/todo">Todos</Link>
           </li>
         </div>
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={Logout} alt="logout" />
-            <a href="#">Log Out</a>
+            <Link to="#">Log Out</Link>
           </li>
         </div>
       </ul>

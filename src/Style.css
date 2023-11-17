@@ -97,17 +97,17 @@ li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 40px;
+  margin: 10px 20px;
   border-radius: 20px;
 }
 .p_manage {
-  margin-left: 50px;
+  margin-left: 20px;
   color: var(--Black);
   font-size: 40px;
 }
 .search {
   background: white;
-  margin-right: 300px;
+  margin-right: 260px;
   width: 60px;
   height: 35px;
   display: flex;
@@ -136,11 +136,11 @@ li a {
 /* User */
 .table_user {
   background: var(--LightGray);
-  margin: 20px 40px;
+  margin: 10px 20px;
   border-radius: 20px;
   font-size: 25px;
   color: var(--Black);
-  padding: 20px 50px;
+  padding: 20px 20px;
 }
 .table {
   width: 100%;
@@ -153,24 +153,28 @@ li a {
 .icon_table {
   width: 20px;
   height: 20px;
+  margin: 10px;
 }
+.table td :hover {
+  cursor: pointer;
+}
+
 /* Manage */
-.manage_div {
-  margin: 40px 40px;
-  gap: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
+
 .manage {
-  width: 100%;
-  height: 250px;
+  display: flex;
+  align-content: start;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 20px;
+  height: 180px;
   border-radius: 20px;
-  background: var(--LightGray);
   font-size: 30px;
+  background: var(--LightGray);
   color: var(--Black);
 }
 .manage div {
-  padding: 20px 30px;
+  margin: 10px 20px;
   display: flex;
   align-items: center;
   align-content: center;
@@ -182,6 +186,7 @@ li a {
   width: 30px;
   height: 30px;
 }
+
 /* responsive */
 @media (max-width: 1300px) {
   .p_manage {
@@ -225,9 +230,6 @@ li a {
     width: 13px;
     height: 13px;
   }
-  .manage_div {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 @media (max-width: 768px) {
   .div_content {
@@ -266,12 +268,6 @@ li a {
     width: 15px;
     height: 15px;
   }
-  .manage {
-    height: 200px;
-  }
-  .manage div {
-    padding: 10px 20px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -291,12 +287,6 @@ li a {
   .icon_table {
     width: 15px;
     height: 15px;
-  }
-  .manage {
-    height: 200px;
-  }
-  .manage div {
-    padding: 10px 20px;
   }
   .manage p {
     font-size: 15px;

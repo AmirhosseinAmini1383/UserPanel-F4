@@ -1,6 +1,6 @@
 import React from "react";
-import Trash from "./css/Icons/trash.png";
-import Edit from "./css/Icons/edit.png";
+import Trash from "../css/Icons/trash.png";
+import Edit from "../css/Icons/edit.png";
 
 const User = () => {
   return (

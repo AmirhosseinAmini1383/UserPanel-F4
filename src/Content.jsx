@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./Style.css";
 import Search from "./css/Icons/search.png";
 import Menu from "./css/Icons/menu.png";
-import User from "./User";
-import Manage from "./Manage";
+import User from "./User/User";
 import { MainContext } from "./Context/MainContext";
+import Todo from "./Todo/Todo";
+import Gallery from "./Gallery/Gallery";
+import Post from "./Post/Post";
 const Content = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   const handleShowMenu = (event) => {
@@ -41,8 +44,12 @@ const Content = () => {
           </div>
         </div>
         <div>
-          <User />
-          <Manage />
+          <Routes>
+            <Route path="/" element={<User />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/todo" element={<Todo />} />
+          </Routes>
         </div>
       </div>
     </div>
