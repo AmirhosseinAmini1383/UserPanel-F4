@@ -1,5 +1,5 @@
 import React from "react";
-import PostIcon from "../css/Icons/post.png";
+import PostIcon from "../../css/Icons/post.png";
 const Post = () => {
   return (
     <div className="manage">

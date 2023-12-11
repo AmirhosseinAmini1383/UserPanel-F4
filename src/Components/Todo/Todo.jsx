@@ -1,5 +1,5 @@
 import React from "react";
-import TodoIcon from "../css/Icons/todo.png";
+import TodoIcon from "../../css/Icons/todo.png";
 const Todo = () => {
   return (
     <div className="manage">

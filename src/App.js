@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Context from "./Content";
-import Sidebar from "./Sidebar";
-import { MainContext } from "./Context/MainContext";
+import { MainContext } from "./Components/Context/MainContext";
 import { BrowserRouter } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Sidebar from "./Pages/Sidebar/Sidebar";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,7 +10,7 @@ function App() {
     <div>
       <BrowserRouter>
         <MainContext.Provider value={{ showMenu, setShowMenu }}>
-          <Context />
+          <Home />
           <Sidebar />
         </MainContext.Provider>
       </BrowserRouter>

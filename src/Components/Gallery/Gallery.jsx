@@ -1,5 +1,5 @@
 import React from "react";
-import GalleryIcon from "../css/Icons/gallery.png";
+import GalleryIcon from "../../css/Icons/gallery.png";
 const Gallery = () => {
   return (
     <div className="manage">

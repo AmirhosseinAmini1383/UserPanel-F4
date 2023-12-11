@@ -1,0 +1,85 @@
+.content-form {
+  font-family: Vazir;
+  color: black;
+  text-align: center;
+}
+.content-form h1 {
+  margin-bottom: 40px;
+}
+.form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  direction: rtl;
+  background: var(--LightGray);
+}
+.form-label {
+  text-align: right;
+}
+label {
+  font-size: 20px;
+  padding: 10px 0px;
+}
+.address {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+.displayform {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.displayAddress {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.displayAddress label {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+.displayAddress .form-control {
+  width: calc(100% - 25px);
+}
+.displayAddress .form-control::placeholder {
+  font-family: Vazir;
+}
+.btnform {
+  text-align: left;
+}
+.btn {
+  border: none;
+  padding: 8px 10px;
+  font-family: Vazir;
+  font-size: 20px;
+  color: var(--White);
+  border-radius: 5px;
+  margin: 20px 5px 10px 5px;
+}
+.Back {
+  background: var(--Red);
+}
+.Add {
+  background: var(--SkyBlue);
+}
+input {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+  outline: none;
+  font-family: Vazir;
+}
+input:focus {
+  border-bottom-color: #ff8c00;
+  border-right: none;
+}
+
+@media (max-width: 1000px) {
+  .form {
+    width: calc(100% - 100px);
+  }
+}

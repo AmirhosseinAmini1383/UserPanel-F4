@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import Image from "./css/Images/profile.jpg";
-import User from "./css/Icons/user.png";
-import Post from "./css/Icons/post.png";
-import Gallery from "./css/Icons/gallery.png";
-import Todo from "./css/Icons/todo.png";
-import Logout from "./css/Icons/logout.png";
-import "./Style.css";
-import { MainContext } from "./Context/MainContext";
+import Image from "../../css/Images/profile.jpg";
+import User from "../../css/Icons/user.png";
+import Post from "../../css/Icons/post.png";
+import Gallery from "../../css/Icons/gallery.png";
+import Todo from "../../css/Icons/todo.png";
+import Logout from "../../css/Icons/logout.png";
+import "../../css/Style.css";
+import { MainContext } from "../../Components/Context/MainContext";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -23,7 +23,7 @@ const Sidebar = () => {
         <div className="div_li">
           <li className="li_content">
             <img className="icon" src={User} alt="user" />
-            <Link to="/">Users</Link>
+            <Link to="/user">Users</Link>
           </li>
         </div>
         <div className="div_li">

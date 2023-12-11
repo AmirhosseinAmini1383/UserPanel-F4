@@ -2,11 +2,16 @@
   --Black: #212529;
   --LightGray: #e9ecef;
   --SkyBlue: #7dc1ee;
+  --Red: #ee7d7d;
   --White: #f8f9fa;
 }
 @font-face {
   font-family: IranBlack;
-  src: url(./css/fonts/IRANBlack.ttf);
+  src: url(./fonts/IRANBlack.ttf);
+}
+@font-face {
+  font-family: Vazir;
+  src: url(./fonts/Vazir-Medium.woff);
 }
 * {
   padding: 0;
@@ -93,7 +98,7 @@ li a {
 .header_content {
   background: var(--LightGray);
   width: 100%;
-  height: 100px;
+  height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,6 +139,17 @@ li a {
   color: var(--SkyBlue);
 }
 /* User */
+.adduser {
+  width: 70px;
+  height: 60px;
+  margin: 10px 20px;
+  border: none;
+  background: var(--SkyBlue);
+  color: var(--Black);
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .table_user {
   background: var(--LightGray);
   margin: 10px 20px;
