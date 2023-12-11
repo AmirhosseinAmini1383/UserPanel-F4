@@ -1,0 +1,8 @@
+.EditUser {
+  margin: 20px 0px;
+}
+.EditUser-p {
+  display: inline;
+  border-bottom: 1px solid var(--SkyBlue);
+  padding-bottom: 5px;
+}

@@ -1,8 +1,9 @@
 import React from "react";
+import "./EditUser.css";
 const EditUser = () => {
   return (
-    <div>
-      <p>توضیحات مربوط به صفحه ویرایش کاربر</p>
+    <div className="EditUser">
+      <p className="EditUser-p">توضیحات مربوط به صفحه ویرایش کاربر</p>
     </div>
   );
 };
