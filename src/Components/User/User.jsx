@@ -44,7 +44,9 @@ const User = () => {
                 <td>amirhossein.amini83@gmail.com</td>
                 <td>
                   <img className="icon_table" src={Trash} alt="trash" />
-                  <img className="icon_table" src={Edit} alt="edit" />
+                  <Link to="/user/add/2">
+                    <img className="icon_table" src={Edit} alt="edit" />
+                  </Link>
                 </td>
               </tr>
               <tr>
@@ -54,7 +56,9 @@ const User = () => {
                 <td>amin.mohebi@gmail.com</td>
                 <td>
                   <img className="icon_table" src={Trash} alt="trash" />
-                  <img className="icon_table" src={Edit} alt="edit" />
+                  <Link to="/user/add/3">
+                    <img className="icon_table" src={Edit} alt="edit" />
+                  </Link>
                 </td>
               </tr>
             </tbody>

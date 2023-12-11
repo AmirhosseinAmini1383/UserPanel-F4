@@ -8,6 +8,7 @@ import Todo from "../../Components/Todo/Todo";
 import Gallery from "../../Components/Gallery/Gallery";
 import Post from "../../Components/Post/Post";
 import AddUser from "../../Components/AddUser/AddUser";
+import EditUser from "../../Components/EditUser/EditUser";
 const Home = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   const [isUser, setisUser] = useState(false);
@@ -39,7 +40,9 @@ const Home = () => {
               element={isUser ? <User /> : <Navigate to="/gallery" />}
             /> */}
             <Route path="/user" element={<User />} />
-            <Route path="/user/add" element={<AddUser />} />
+            <Route path="/user/add" element={<AddUser />}>
+              <Route path=":userId" element={<EditUser />} />
+            </Route>
             <Route path="/post" element={<Post />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/todo" element={<Todo />} />

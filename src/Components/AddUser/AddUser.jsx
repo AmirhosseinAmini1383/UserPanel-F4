@@ -1,9 +1,11 @@
 import React from "react";
 import "./AddUser.css";
+import { Outlet, useParams } from "react-router-dom";
 const AddUser = () => {
+  const { userId } = useParams();
   return (
     <div className="content-form">
-      <h1>افزودن کاربر</h1>
+      <h1>{userId ? "ویرایش کاربر" : "افزودن کاربر"}</h1>
       <div className="form">
         <div>
           <form>
@@ -52,13 +54,13 @@ const AddUser = () => {
                 بازگشت
               </button>
               <button type="submit" class="btn Add">
-                ذخیره
+                {userId ? "ویرایش" : "ذخیره"}
               </button>
             </div>
           </form>
         </div>
-        {/* <Outlet/> */}
       </div>
+      <Outlet />
     </div>
   );
 };

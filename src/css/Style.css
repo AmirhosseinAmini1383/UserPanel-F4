@@ -204,6 +204,12 @@ li a {
 }
 
 /* responsive */
+
+@media (max-width: 5000px) {
+  .menu {
+    display: none;
+  }
+}
 @media (max-width: 1300px) {
   .p_manage {
     font-size: 35px;
@@ -248,6 +254,9 @@ li a {
   }
 }
 @media (max-width: 768px) {
+  .menu {
+    display: inline;
+  }
   .div_content {
     width: 100%;
   }
