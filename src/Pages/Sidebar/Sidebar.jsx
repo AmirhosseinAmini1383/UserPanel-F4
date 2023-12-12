@@ -7,7 +7,7 @@ import Todo from "../../css/Icons/todo.png";
 import Logout from "../../css/Icons/logout.png";
 import "../../css/Style.css";
 import { MainContext } from "../../Components/Context/MainContext";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
@@ -21,34 +21,69 @@ const Sidebar = () => {
           </li>
         </div>
         <div className="div_li">
-          <li className="li_content">
-            <img className="icon" src={User} alt="user" />
-            <Link to="/user">Users</Link>
-          </li>
+          <NavLink
+            to="/user"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={User} alt="user" />
+              Users
+            </li>
+          </NavLink>
         </div>
         <div className="div_li">
-          <li className="li_content">
-            <img className="icon" src={Post} alt="post" />
-            <Link to="/post">Posts</Link>
-          </li>
+          <NavLink
+            to="/post"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={Post} alt="post" />
+              Posts
+            </li>
+          </NavLink>
         </div>
         <div className="div_li">
-          <li className="li_content">
-            <img className="icon" src={Gallery} alt="gallery" />
-            <Link to="/gallery">Gallery</Link>
-          </li>
+          <NavLink
+            to="/gallery"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={Gallery} alt="gallery" />
+              Gallery
+            </li>
+          </NavLink>
         </div>
         <div className="div_li">
-          <li className="li_content">
-            <img className="icon" src={Todo} alt="todo" />
-            <Link to="/todo">Todos</Link>
-          </li>
+          <NavLink
+            to="/todo"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={Todo} alt="todo" />
+              Todos
+            </li>
+          </NavLink>
         </div>
         <div className="div_li">
-          <li className="li_content">
-            <img className="icon" src={Logout} alt="logout" />
-            <Link to="#">Log Out</Link>
-          </li>
+          <NavLink
+            to="/logout"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={Logout} alt="logout" />
+              Log Out
+            </li>
+          </NavLink>
         </div>
       </ul>
     </div>

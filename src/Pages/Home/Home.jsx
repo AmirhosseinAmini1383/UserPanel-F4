@@ -9,6 +9,7 @@ import Gallery from "../../Components/Gallery/Gallery";
 import Post from "../../Components/Post/Post";
 import AddUser from "../../Components/AddUser/AddUser";
 import EditUser from "../../Components/EditUser/EditUser";
+import LogOut from "../../Components/LogOut/LogOut";
 const Home = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   const [isUser, setisUser] = useState(false);
@@ -46,6 +47,7 @@ const Home = () => {
             <Route path="/post" element={<Post />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/todo" element={<Todo />} />
+            <Route path="/logout" element={<LogOut />} />
             <Route path="*" element={<User />} />
           </Routes>
         </div>

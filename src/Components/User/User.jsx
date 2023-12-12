@@ -1,10 +1,14 @@
 import React from "react";
 import Trash from "../../css/Icons/trash.png";
 import Edit from "../../css/Icons/edit.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
 
 const User = () => {
+  const navigate = useNavigate();
+  const EditUserNavigate = () => {
+    navigate("/user/add/3");
+  };
   return (
     <div>
       <div className="section_header">
@@ -44,9 +48,13 @@ const User = () => {
                 <td>amirhossein.amini83@gmail.com</td>
                 <td>
                   <img className="icon_table" src={Trash} alt="trash" />
-                  <Link to="/user/add/2">
-                    <img className="icon_table" src={Edit} alt="edit" />
-                  </Link>
+
+                  <img
+                    className="icon_table"
+                    src={Edit}
+                    alt="edit"
+                    onClick={EditUserNavigate}
+                  />
                 </td>
               </tr>
               <tr>
@@ -56,9 +64,13 @@ const User = () => {
                 <td>amin.mohebi@gmail.com</td>
                 <td>
                   <img className="icon_table" src={Trash} alt="trash" />
-                  <Link to="/user/add/3">
-                    <img className="icon_table" src={Edit} alt="edit" />
-                  </Link>
+
+                  <img
+                    className="icon_table"
+                    src={Edit}
+                    alt="edit"
+                    onClick={EditUserNavigate}
+                  />
                 </td>
               </tr>
             </tbody>

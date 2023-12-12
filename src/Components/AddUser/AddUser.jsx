@@ -1,8 +1,9 @@
 import React from "react";
 import "./AddUser.css";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 const AddUser = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
   return (
     <div className="content-form">
       <h1>{userId ? "ویرایش کاربر" : "افزودن کاربر"}</h1>
@@ -50,7 +51,13 @@ const AddUser = () => {
             </div>
 
             <div className="btnform">
-              <button type="button" class="btn Back">
+              <button
+                type="button"
+                class="btn Back"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
                 بازگشت
               </button>
               <button type="submit" class="btn Add">

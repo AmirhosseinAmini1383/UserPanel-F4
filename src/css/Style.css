@@ -57,27 +57,26 @@ a {
   border-radius: 50%;
 }
 li {
-  margin: 20px 20px;
-  padding: 10px 10px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
-li a {
+a li {
   font-size: 20px;
-  margin-left: 10px;
+}
+.active-nav li {
+  cursor: pointer;
+  background: var(--SkyBlue);
 }
 .li_content {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
-.div_li :hover {
-  cursor: pointer;
-  background: var(--SkyBlue);
-  border-radius: 10px;
-}
 .icon {
   width: 25px;
   height: 25px;
+  margin-right: 10px;
 }
 /* Content */
 .div_content {
