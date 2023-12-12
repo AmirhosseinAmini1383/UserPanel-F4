@@ -1,5 +1,4 @@
 .content-form {
-  font-family: Vazir;
   color: black;
   text-align: center;
 }
@@ -41,9 +40,6 @@ label {
 }
 .displayAddress .form-control {
   width: calc(100% - 25px);
-}
-.displayAddress .form-control::placeholder {
-  font-family: Vazir;
 }
 .btnform {
   text-align: left;

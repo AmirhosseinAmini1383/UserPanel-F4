@@ -3,28 +3,55 @@ import Trash from "../../css/Icons/trash.png";
 import Edit from "../../css/Icons/edit.png";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
-
+import swal from "sweetalert";
 const User = () => {
   const navigate = useNavigate();
   const EditUserNavigate = () => {
-    navigate("/user/add/3");
+    // Send Params With Navigate
+    navigate("/user/add/3", {
+      state: { x: "React", y: "Angular" },
+    });
+  };
+  const handleDelete = (itemId) => {
+    swal({
+      title: "! حذف رکورد",
+      text: `آیا از حذف رکورد ${itemId} اطمینان دارید؟`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("حذف با موفقیت انجام شد", {
+          icon: "success",
+        });
+      } else {
+        swal("شما از حذف رکورد منصرف شدید", {
+          icon: "error",
+        });
+      }
+    });
   };
   return (
     <div>
       <div className="section_header">
         <div className="header_content">
           <p className="p_manage">Manege Users</p>
-          <form class="search">
+          <form className="search">
             <img className="img-search" src={Search} alt="Search" />
-            <input class="input-search" type="text" placeholder="search..." />
-            <button class="btn-search" type="submit">
+            <input
+              className="input-search"
+              type="text"
+              placeholder="search..."
+            />
+            <button className="btn-search" type="submit">
               Search
             </button>
           </form>
         </div>
       </div>
       <div>
-        <Link to="/user/add">
+        {/* Send Params With Link */}
+        <Link to="/user/add" state={"AddUser"}>
           <button className="adduser">+</button>
         </Link>
       </div>
@@ -47,7 +74,12 @@ const User = () => {
                 <td>Amini</td>
                 <td>amirhossein.amini83@gmail.com</td>
                 <td>
-                  <img className="icon_table" src={Trash} alt="trash" />
+                  <img
+                    className="icon_table"
+                    src={Trash}
+                    alt="trash"
+                    onClick={() => handleDelete(1)}
+                  />
 
                   <img
                     className="icon_table"
@@ -63,7 +95,12 @@ const User = () => {
                 <td>Mohebi</td>
                 <td>amin.mohebi@gmail.com</td>
                 <td>
-                  <img className="icon_table" src={Trash} alt="trash" />
+                  <img
+                    className="icon_table"
+                    src={Trash}
+                    alt="trash"
+                    onClick={() => handleDelete(2)}
+                  />
 
                   <img
                     className="icon_table"

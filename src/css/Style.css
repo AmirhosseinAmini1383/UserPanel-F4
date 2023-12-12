@@ -6,10 +6,6 @@
   --White: #f8f9fa;
 }
 @font-face {
-  font-family: IranBlack;
-  src: url(./fonts/IRANBlack.ttf);
-}
-@font-face {
   font-family: Vazir;
   src: url(./fonts/Vazir-Medium.woff);
 }
@@ -18,7 +14,7 @@
   margin: 0;
 }
 body {
-  font-family: IranBlack;
+  font-family: Vazir;
   color: var(--White);
 }
 /* Sidebar */
