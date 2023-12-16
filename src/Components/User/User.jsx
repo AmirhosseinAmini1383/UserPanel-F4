@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Trash from "../../css/Icons/trash.png";
 import Edit from "../../css/Icons/edit.png";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
 import swal from "sweetalert";
+import axios from "axios";
+
 const User = () => {
+  const [Users, setUsers] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const navigate = useNavigate();
   const EditUserNavigate = () => {
     // Send Params With Navigate
@@ -55,65 +69,49 @@ const User = () => {
           <button className="adduser">+</button>
         </Link>
       </div>
-      <div className="user_context">
-        <div className="table_user">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Operation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Amirhossein</td>
-                <td>Amini</td>
-                <td>amirhossein.amini83@gmail.com</td>
-                <td>
-                  <img
-                    className="icon_table"
-                    src={Trash}
-                    alt="trash"
-                    onClick={() => handleDelete(1)}
-                  />
-
-                  <img
-                    className="icon_table"
-                    src={Edit}
-                    alt="edit"
-                    onClick={EditUserNavigate}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Amin</td>
-                <td>Mohebi</td>
-                <td>amin.mohebi@gmail.com</td>
-                <td>
-                  <img
-                    className="icon_table"
-                    src={Trash}
-                    alt="trash"
-                    onClick={() => handleDelete(2)}
-                  />
-
-                  <img
-                    className="icon_table"
-                    src={Edit}
-                    alt="edit"
-                    onClick={EditUserNavigate}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      {Users.length ? (
+        <div className="user_context">
+          <div className="table_user">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Users.map((user) => (
+                  <tr>
+                    <td>{user.id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.username}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      <img
+                        className="icon_table"
+                        src={Trash}
+                        alt="trash"
+                        onClick={() => handleDelete(1)}
+                      />
+                      <img
+                        className="icon_table"
+                        src={Edit}
+                        alt="edit"
+                        onClick={EditUserNavigate}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      ) : (
+        <h4 className="waiting-status">...لطفا صبر کنید</h4>
+      )}
     </div>
   );
 };
