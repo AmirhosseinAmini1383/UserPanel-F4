@@ -7,6 +7,51 @@ import swal from "sweetalert";
 import axios from "axios";
 
 const User = () => {
+  // Promise
+  // var promise = new Promise((resolvem, reject) => {
+  //   console.log(1);
+  //   setTimeout(() => {
+  //     console.log(2);
+  //     resolvem(true);
+  //   }, 3000);
+  // });
+  // promise.then((res) => {
+  //   console.log(3);
+  //   console.log(res);
+  // });
+
+  // const func = () => {
+  //   return new Promise((resolve, reject) => {
+  //     console.log(1);
+  //     setTimeout(() => {
+  //       console.log(2);
+  //       resolve(true);
+  //     }, 3000);
+  //   });
+  // };
+  // const test = async () => {
+  //   const res = await func();
+  //   if (res) {
+  //     console.log(3);
+  //     console.log(res);
+  //   }
+  // };
+  // test();
+
+  // await async
+  const prom = (id) => {
+    return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+  };
+  const func = async (id) => {
+    await prom(id).then((res) => {
+      console.log(res.data);
+    });
+    console.log(id);
+  };
+  for (const item of [1, 2, 3, 4, 5, 6, 7]) {
+    func(item);
+  }
+
   const [Users, setUsers] = useState([]);
   useEffect(() => {
     axios
@@ -84,7 +129,7 @@ const User = () => {
               </thead>
               <tbody>
                 {Users.map((user) => (
-                  <tr>
+                  <tr key={user.id}>
                     <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.username}</td>
