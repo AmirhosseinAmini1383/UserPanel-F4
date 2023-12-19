@@ -39,18 +39,18 @@ const User = () => {
   // test();
 
   // await async
-  const prom = (id) => {
-    return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
-  };
-  const func = async (id) => {
-    await prom(id).then((res) => {
-      console.log(res.data);
-    });
-    console.log(id);
-  };
-  for (const item of [1, 2, 3, 4, 5, 6, 7]) {
-    func(item);
-  }
+  // const prom = (id) => {
+  //   return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+  // };
+  // const func = async (id) => {
+  //   await prom(id).then((res) => {
+  //     console.log(res.data);
+  //   });
+  //   console.log(id);
+  // };
+  // for (const item of [1, 2, 3, 4, 5, 6, 7]) {
+  //   func(item);
+  // }
 
   const [Users, setUsers] = useState([]);
   useEffect(() => {
@@ -65,13 +65,11 @@ const User = () => {
   }, []);
 
   const navigate = useNavigate();
-  const EditUserNavigate = () => {
+  const EditUserNavigate = (itemId) => {
     // Send Params With Navigate
-    navigate("/user/add/3", {
-      state: { x: "React", y: "Angular" },
-    });
+    navigate(`/user/add/${itemId}`);
   };
-  const handleDelete = (itemId) => {
+  const handleDeleteUser = (itemId) => {
     swal({
       title: "! حذف رکورد",
       text: `آیا از حذف رکورد ${itemId} اطمینان دارید؟`,
@@ -80,12 +78,33 @@ const User = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal("حذف با موفقیت انجام شد", {
-          icon: "success",
-        });
+        // axios({
+        //   method: "DELETE",
+        //   url: `https://jsonplaceholder.typicode.com/users/${itemId}`,
+        // }).then((res) => {
+        //   swal("حذف با موفقیت انجام شد", {
+        //     icon: "success",
+        //   });
+        //   console.log(res);
+        // });
+        axios
+          .delete(`https://jsonplaceholder.typicode.com/users/${itemId}`)
+          .then((res) => {
+            if (res.status == 200) {
+              const newUsers = Users.filter((user) => user.id != itemId);
+              setUsers(newUsers);
+              swal("حذف با موفقیت انجام شد", {
+                icon: "success",
+              });
+            } else {
+              swal("عملیات با خطا مواجه شد", {
+                icon: "error",
+              });
+            }
+          });
       } else {
         swal("شما از حذف رکورد منصرف شدید", {
-          icon: "error",
+          icon: "warning",
         });
       }
     });
@@ -110,7 +129,7 @@ const User = () => {
       </div>
       <div>
         {/* Send Params With Link */}
-        <Link to="/user/add" state={"AddUser"}>
+        <Link to="/user/add/" state={"AddUser"}>
           <button className="adduser">+</button>
         </Link>
       </div>
@@ -139,13 +158,15 @@ const User = () => {
                         className="icon_table"
                         src={Trash}
                         alt="trash"
-                        onClick={() => handleDelete(1)}
+                        onClick={() => handleDeleteUser(user.id)}
                       />
                       <img
                         className="icon_table"
                         src={Edit}
                         alt="edit"
-                        onClick={EditUserNavigate}
+                        onClick={() => {
+                          EditUserNavigate(user.id);
+                        }}
                       />
                     </td>
                   </tr>

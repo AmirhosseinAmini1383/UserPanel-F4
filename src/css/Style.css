@@ -106,7 +106,7 @@ a li {
   font-size: 40px;
 }
 .search {
-  background: white;
+  background: var(--White);
   margin-right: 260px;
   width: 60px;
   height: 35px;
@@ -199,7 +199,7 @@ a li {
 }
 .waiting-status {
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   color: var(--SkyBlue);
 }
 /* responsive */
