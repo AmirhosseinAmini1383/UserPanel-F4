@@ -7,74 +7,39 @@ import swal from "sweetalert";
 import axios from "axios";
 
 const User = () => {
-  // Promise
-  // var promise = new Promise((resolvem, reject) => {
-  //   console.log(1);
-  //   setTimeout(() => {
-  //     console.log(2);
-  //     resolvem(true);
-  //   }, 3000);
-  // });
-  // promise.then((res) => {
-  //   console.log(3);
-  //   console.log(res);
-  // });
-
-  // const func = () => {
-  //   return new Promise((resolve, reject) => {
-  //     console.log(1);
-  //     setTimeout(() => {
-  //       console.log(2);
-  //       resolve(true);
-  //     }, 3000);
-  //   });
-  // };
-  // const test = async () => {
-  //   const res = await func();
-  //   if (res) {
-  //     console.log(3);
-  //     console.log(res);
-  //   }
-  // };
-  // test();
-
-  // await async
-  // const prom = (id) => {
-  //   return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
-  // };
-  // const func = async (id) => {
-  //   await prom(id).then((res) => {
-  //     console.log(res.data);
-  //   });
-  //   console.log(id);
-  // };
-  // for (const item of [1, 2, 3, 4, 5, 6, 7]) {
-  //   func(item);
-  // }
-
+  // استیت کاربرانی که در صفحه نمایش داده میشن
   const [Users, setUsers] = useState([]);
+  // استیت همه کاربرانی که از سرور گرفته میشن
+  const [MainUsers, setMainUsers] = useState([]);
+  // برای پیام لطفا منتظر بمانید یا جستجو یافت نشد
+  const [Loading, setLoading] = useState(true);
+
+  // درخواستی که برای دریافت اطلاعات کاربران به سرور ارسال میشه
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
         setUsers(res.data);
+        setMainUsers(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
+  // در این قسمت ایدی کاربر مورد نظر به صورت پارامتر به کامپوننت اد یوزر ارسال میشه
   const navigate = useNavigate();
   const EditUserNavigate = (itemId) => {
     // Send Params With Navigate
     navigate(`/user/add/${itemId}`);
   };
+  // درخواست حذف کاربران از رکورد جدول و سرور
   const handleDeleteUser = (itemId) => {
     swal({
       title: "! حذف رکورد",
       text: `آیا از حذف رکورد ${itemId} اطمینان دارید؟`,
       icon: "warning",
-      buttons: true,
+      buttons: ["خیر", "بله"],
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
@@ -94,20 +59,30 @@ const User = () => {
               const newUsers = Users.filter((user) => user.id != itemId);
               setUsers(newUsers);
               swal("حذف با موفقیت انجام شد", {
+                buttons: "متوجه شدم",
                 icon: "success",
               });
             } else {
               swal("عملیات با خطا مواجه شد", {
+                buttons: "متوجه شدم",
                 icon: "error",
               });
             }
           });
       } else {
         swal("شما از حذف رکورد منصرف شدید", {
+          buttons: "متوجه شدم",
           icon: "warning",
         });
       }
     });
+  };
+  // فعال کردن سرچ باکس
+  const handleSearch = (e) => {
+    setUsers(MainUsers.filter((u) => u.name.includes(e.target.value)));
+    if (!Users.length - 1) {
+      setLoading(false);
+    }
   };
   return (
     <div>
@@ -120,10 +95,9 @@ const User = () => {
               className="input-search"
               type="text"
               placeholder="search..."
+              onChange={handleSearch}
             />
-            <button className="btn-search" type="submit">
-              Search
-            </button>
+            <button className="btn-search">Search</button>
           </form>
         </div>
       </div>
@@ -176,9 +150,60 @@ const User = () => {
           </div>
         </div>
       ) : (
-        <h4 className="waiting-status">...لطفا صبر کنید</h4>
+        <div>
+          {Loading ? (
+            <h4 className="waiting-status">لطفا منتظر بمانید</h4>
+          ) : (
+            <h4 className="waiting-status">جستوجو یافت نشد</h4>
+          )}
+        </div>
       )}
     </div>
   );
 };
 export default User;
+
+// Promise
+// var promise = new Promise((resolvem, reject) => {
+//   console.log(1);
+//   setTimeout(() => {
+//     console.log(2);
+//     resolvem(true);
+//   }, 3000);
+// });
+// promise.then((res) => {
+//   console.log(3);
+//   console.log(res);
+// });
+
+// const func = () => {
+//   return new Promise((resolve, reject) => {
+//     console.log(1);
+//     setTimeout(() => {
+//       console.log(2);
+//       resolve(true);
+//     }, 3000);
+//   });
+// };
+// const test = async () => {
+//   const res = await func();
+//   if (res) {
+//     console.log(3);
+//     console.log(res);
+//   }
+// };
+// test();
+
+// await async
+// const prom = (id) => {
+//   return axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+// };
+// const func = async (id) => {
+//   await prom(id).then((res) => {
+//     console.log(res.data);
+//   });
+//   console.log(id);
+// };
+// for (const item of [1, 2, 3, 4, 5, 6, 7]) {
+//   func(item);
+// }

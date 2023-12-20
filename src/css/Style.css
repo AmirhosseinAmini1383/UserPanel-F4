@@ -202,6 +202,12 @@ a li {
   font-size: 40px;
   color: var(--SkyBlue);
 }
+.swal-button {
+  font-family: Vazir;
+  border: none;
+  margin: 10px 3px;
+  cursor: pointer;
+}
 /* responsive */
 
 @media (max-width: 5000px) {
