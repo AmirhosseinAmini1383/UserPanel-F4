@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./AddUser.css";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import swal from "sweetalert";
+import {
+  getUserService,
+  setUserService,
+  updateUserService,
+} from "../../Service/UserService";
 const AddUser = () => {
-  // دریافت پارامتر های ارسال شده از کامپوننت یوزر
   const { userId } = useParams();
-  // const Params = useLocation();
-  // console.log(Params);
   const navigate = useNavigate();
-  // برای پیام لطفا منتظر بمانید در صفحه فرم ویرایش
   const [loading, setLoading] = useState(true);
-  // مقداری که داخل اینپوت هامون قرار میگیرن
   const [Data, setData] = useState({
     name: "",
     username: "",
@@ -23,55 +21,18 @@ const AddUser = () => {
       zipcode: "",
     },
   });
-  // اگر یوزرایدی پارامتری داخلش بود و مقدارش ترو بود  متود پوت رو اجرا کن در غیر این صورت متود پست رو اجرا کن
-  // ارسال اطلاعات جدید یا ویرایش شده
   const handleAddUser = (e) => {
     e.preventDefault();
-    // console.log(Data);
     if (userId) {
-      axios
-        .put(`https://jsonplaceholder.typicode.com/users/${userId}`, Data)
-        .then((res) => {
-          console.log(res);
-          swal(`${res.data.name} با موفقیت ویرایش شد`, {
-            icon: "success",
-            buttons: "متوجه شدم",
-          });
-        });
+      updateUserService(userId, Data);
     } else {
-      axios
-        .post("https://jsonplaceholder.typicode.com/users", Data)
-        .then((res) => {
-          if (res.status == 201) {
-            swal(`${res.data.name} با موفقیت ایجاد شد`, {
-              icon: "success",
-              buttons: "متوجه شدم",
-            });
-          }
-        });
+      setUserService(Data);
     }
   };
-  // اگر یوزرایدی پارامتری داخلش بود و مقدارش ترو بود اطلاعات کاربر مدنظر رو بگیر و اطلاعات رو بریز داخل اینپوت هامون
-  // مقدار استیت لودینگ هم فالس میشه و دیگه نمایش داده نمیشه
   useEffect(() => {
     if (userId) {
-      axios
-        .get(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        .then((res) => {
-          console.log(res);
-          setData({
-            name: res.data.name,
-            username: res.data.username,
-            email: res.data.email,
-            address: {
-              street: res.data.address.street,
-              city: res.data.address.city,
-              suite: res.data.address.suite,
-              zipcode: res.data.address.zipcode,
-            },
-          });
-          setLoading(false);
-        });
+      getUserService(userId, setData);
+      setLoading(false);
     } else {
       setLoading(false);
     }
