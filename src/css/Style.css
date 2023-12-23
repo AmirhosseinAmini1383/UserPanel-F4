@@ -191,7 +191,7 @@ a li {
   align-content: center;
 }
 .manage p {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .manage-icon {
   width: 30px;
@@ -207,6 +207,16 @@ a li {
   border: none;
   margin: 10px 3px;
   cursor: pointer;
+}
+.btnCountBody {
+  font-weight: bold;
+  font-size: 15px;
+  background: var(--Black);
+  color: var(--Red);
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid var(--Red);
+  margin: 10px 0px;
 }
 /* responsive */
 
