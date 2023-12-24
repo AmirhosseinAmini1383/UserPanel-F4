@@ -3,8 +3,8 @@ import Trash from "../../css/Icons/trash.png";
 import Edit from "../../css/Icons/edit.png";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
-import swal from "sweetalert";
 import { getUserReq, setDeleteUser } from "../../Service/UserService";
+import { Alert, Confirm } from "../../Utils/SweetAlret";
 const User = () => {
   const [Users, setUsers] = useState([]);
   const [MainUsers, setMainUsers] = useState([]);
@@ -18,13 +18,7 @@ const User = () => {
   };
 
   const handleDeleteUser = (itemId) => {
-    swal({
-      title: "! حذف رکورد",
-      text: `آیا از حذف رکورد ${itemId} اطمینان دارید؟`,
-      icon: "warning",
-      buttons: ["خیر", "بله"],
-      dangerMode: true,
-    }).then((willDelete) => {
+    Confirm(itemId).then((willDelete) => {
       if (willDelete) {
         // axios({
         //   method: "DELETE",
@@ -37,10 +31,7 @@ const User = () => {
         // });
         setDeleteUser(Users, setUsers, itemId);
       } else {
-        swal("شما از حذف رکورد منصرف شدید", {
-          buttons: "متوجه شدم",
-          icon: "warning",
-        });
+        Alert();
       }
     });
   };
