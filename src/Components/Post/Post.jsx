@@ -6,11 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
 import { setDeleteUser } from "../../Service/UserService";
 import { Alert, Confirm } from "../../Utils/SweetAlret";
-import { getCommentReq, getPostReq } from "../../Service/PostService";
-import { jpAxios } from "../../Api/Axios/JpAxios";
+import { getPostReq } from "../../Service/PostService";
 const Post = () => {
   const [Post, setPost] = useState([]);
   const [MainPost, setMainPost] = useState([]);
+  const [UserId, setUserId] = useState("");
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     getPostReq(setPost, setMainPost);
@@ -44,12 +44,16 @@ const Post = () => {
   const handleCheckComment = (postId) => {
     navigate(`/post/comment/${postId}`);
   };
-  const handleSearch = (e) => {
-    setPost(MainPost.filter((u) => u.title.includes(e.target.value)));
-    if (!Post.length - 1) {
+  const handleSearch = () => {
+    if (UserId > 0) setPost(MainPost.filter((u) => u.userId == UserId));
+    else setPost(MainPost);
+    if (Post.length) {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    handleSearch();
+  }, [UserId]);
   return (
     <div>
       <div className="section_header">
@@ -59,9 +63,12 @@ const Post = () => {
             <img className="img-search" src={Search} alt="Search" />
             <input
               className="input-search"
-              type="text"
+              type="number"
               placeholder="search..."
-              onChange={handleSearch}
+              onChange={(e) => {
+                setUserId(e.target.value);
+              }}
+              value={UserId}
             />
             <button className="btn-search">Search</button>
           </form>
@@ -89,7 +96,15 @@ const Post = () => {
                 {Post.map((post) => (
                   <tr key={post.id}>
                     <td className="td-padding">{post.id}</td>
-                    <td className="td-padding">{post.userId}</td>
+                    <td
+                      className="td-padding"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        setUserId(post.userId);
+                      }}
+                    >
+                      {post.userId}
+                    </td>
                     <td className="td-padding txtalign-left">{post.title}</td>
                     <td className="td-padding txtalign-left">{post.body}</td>
                     <td>

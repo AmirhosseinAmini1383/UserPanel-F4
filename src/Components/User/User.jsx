@@ -37,7 +37,7 @@ const User = () => {
   };
   const handleSearch = (e) => {
     setUsers(MainUsers.filter((u) => u.name.includes(e.target.value)));
-    if (!Users.length - 1) {
+    if (Users.length) {
       setLoading(false);
     }
   };
