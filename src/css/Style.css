@@ -169,7 +169,13 @@ a li {
 .table td :hover {
   cursor: pointer;
 }
-
+.td-padding {
+  text-align: center;
+  padding: 5px 30px;
+}
+.txtalign-left {
+  text-align: left;
+}
 /* Manage */
 
 .manage {

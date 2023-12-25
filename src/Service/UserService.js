@@ -6,8 +6,6 @@ export const getUserReq = async (setUsers, setMainUsers) => {
   if (res) {
     setUsers(res.data);
     setMainUsers(res.data);
-  } else {
-    console.log(res);
   }
 };
 // User component

@@ -6,6 +6,6 @@ export const jpAxios = axios.create({
   //     Authorization: "Bearer 5fdsd14sdf11e65fsef2evad45eefr46rgh14jy...",
   //     "Content-Type": "application/json",
   //   },
-  timeout: 3000,
-  timeoutErrorMessage: "زمان پاسخگویی شما 3 ثانیه زمان برد...!",
+  // timeout: 5000,
+  // timeoutErrorMessage: "زمان پاسخگویی شما 5 ثانیه زمان برد...!",
 });

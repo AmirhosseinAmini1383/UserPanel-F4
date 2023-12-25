@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import "../../css/Style.css";
 import Menu from "../../css/Icons/menu.png";
@@ -10,9 +10,9 @@ import Post from "../../Components/Post/Post";
 import AddUser from "../../Components/AddUser/AddUser";
 import EditUser from "../../Components/EditUser/EditUser";
 import LogOut from "../../Components/LogOut/LogOut";
+import Comment from "../../Components/Post/Comment";
 const Home = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
-  const [isUser, setisUser] = useState(false);
   const handleShowMenu = (event) => {
     event.stopPropagation();
     setShowMenu(!showMenu);
@@ -45,6 +45,9 @@ const Home = () => {
               <Route path=":userId" element={<EditUser />} />
             </Route>
             <Route path="/post" element={<Post />} />
+            <Route path="/post/comment" element={<Comment />}>
+              <Route path=":postId" element={<Comment />} />
+            </Route>
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/todo" element={<Todo />} />
             <Route path="/logout" element={<LogOut />} />
