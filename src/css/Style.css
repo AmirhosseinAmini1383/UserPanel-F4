@@ -224,6 +224,14 @@ a li {
   border: 2px solid var(--Red);
   margin: 10px 0px;
 }
+.btn-margin {
+  margin: 0px 10px;
+  font-family: Vazir;
+}
+.h2-counter {
+  margin-left: 50px;
+  margin-right: 50px;
+}
 /* responsive */
 
 @media (max-width: 5000px) {
