@@ -177,7 +177,6 @@ a li {
   text-align: left;
 }
 /* Manage */
-
 .manage {
   display: flex;
   align-content: start;
@@ -216,10 +215,11 @@ a li {
 }
 .btnCountBody {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
+  font-family: "Vazir";
   background: var(--Black);
   color: var(--Red);
-  padding: 15px;
+  padding: 15px 20px;
   border-radius: 10px;
   border: 2px solid var(--Red);
   margin: 10px 0px;
@@ -231,6 +231,28 @@ a li {
 .h2-counter {
   margin-left: 50px;
   margin-right: 50px;
+}
+/* Todo */
+.grid-temp {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  color: var(--Black);
+  text-align: center;
+}
+.bg-title {
+  background: var(--LightGray);
+  margin: 10px 20px;
+  border-radius: 20px;
+  padding: 50px;
+}
+.title-h3 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  direction: rtl;
+}
+.title-spn {
+  font-size: 25px;
+  margin-top: 10px;
 }
 /* responsive */
 
