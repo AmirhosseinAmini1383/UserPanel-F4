@@ -17,7 +17,7 @@ const Post = () => {
   }, []);
   const navigate = useNavigate();
   const EditUserNavigate = (itemId) => {
-    navigate(`/user/add/${itemId}`);
+    navigate(`/post/add/${itemId}`);
   };
   const handleDeleteUser = (itemId) => {
     Confirm(itemId).then((willDelete) => {

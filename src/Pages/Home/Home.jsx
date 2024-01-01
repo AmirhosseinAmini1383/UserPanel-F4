@@ -11,6 +11,8 @@ import AddUser from "../../Components/AddUser/AddUser";
 import EditUser from "../../Components/EditUser/EditUser";
 import LogOut from "../../Components/LogOut/LogOut";
 import Comment from "../../Components/Post/Comment";
+// import AddPost from "../../Components/Post/AddPost";
+import AddPost2 from "../../Components/Post/AddPost2";
 const Home = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   const handleShowMenu = (event) => {
@@ -45,6 +47,9 @@ const Home = () => {
               <Route path=":userId" element={<EditUser />} />
             </Route>
             <Route path="/post" element={<Post />} />
+            <Route path="/post/add" element={<AddPost2 />}>
+              <Route path=":postId" />
+            </Route>
             <Route path="/post/comment" element={<Comment />}>
               <Route path=":postId" element={<Comment />} />
             </Route>
