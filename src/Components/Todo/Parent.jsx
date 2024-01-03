@@ -4,7 +4,7 @@ import Countbox from "./Countbox";
 import Countbutton from "./Countbutton";
 
 const Parent = () => {
-  const [title, setTitle] = useState("ادامه بده...");
+  const [title, setTitle] = useState("useCallback {ادامه بده...}");
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(5);
   const handleSetFirstCount = useCallback(() => {
