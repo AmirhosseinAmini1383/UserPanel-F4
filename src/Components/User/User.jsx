@@ -5,13 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../../css/Icons/search.png";
 import { getUserReq, setDeleteUser } from "../../Service/UserService";
 import { Alert, Confirm } from "../../Utils/SweetAlret";
+import useTitle from "../../Hooks/useTitle";
 const User = () => {
   const [Users, setUsers] = useState([]);
   const [MainUsers, setMainUsers] = useState([]);
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     getUserReq(setUsers, setMainUsers);
+    // document.title = "User";
   }, []);
+  useTitle("User");
   const navigate = useNavigate();
   const EditUserNavigate = (itemId) => {
     navigate(`/user/add/${itemId}`);

@@ -7,6 +7,7 @@ import Search from "../../css/Icons/search.png";
 import { setDeleteUser } from "../../Service/UserService";
 import { Alert, Confirm } from "../../Utils/SweetAlret";
 import { getPostReq } from "../../Service/PostService";
+import useTitle from "../../Hooks/useTitle";
 const Post = () => {
   const [Post, setPost] = useState([]);
   const [MainPost, setMainPost] = useState([]);
@@ -14,7 +15,9 @@ const Post = () => {
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     getPostReq(setPost, setMainPost);
+    // document.title = "Post";
   }, []);
+  useTitle("Post");
   const navigate = useNavigate();
   const EditUserNavigate = (itemId) => {
     navigate(`/post/add/${itemId}`);

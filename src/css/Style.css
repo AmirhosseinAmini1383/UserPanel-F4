@@ -222,7 +222,7 @@ a li {
   padding: 15px 20px;
   border-radius: 10px;
   border: 2px solid var(--Red);
-  margin: 10px 0px;
+  margin: 10px;
 }
 .btn-margin {
   margin: 0px 10px;
@@ -244,8 +244,11 @@ a li {
   margin: 10px 20px;
   border-radius: 20px;
   padding: 50px;
+  text-align: center;
 }
 .title-h3 {
+  text-align: center;
+  color: var(--Black);
   font-size: 40px;
   margin-bottom: 20px;
   direction: rtl;
@@ -253,6 +256,10 @@ a li {
 .title-spn {
   font-size: 25px;
   margin-top: 10px;
+}
+/* counter */
+.counter {
+  padding: 20px;
 }
 /* responsive */
 

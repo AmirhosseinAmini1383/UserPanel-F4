@@ -3,8 +3,13 @@ import TodoIcon from "../../css/Icons/todo.png";
 import ClickCount from "../HOC/ClickCount";
 import HoverCount from "../HOC/HoverCount";
 import Parent from "./Parent";
+import useTitle from "../../Hooks/useTitle";
 
 const Todo = () => {
+  // useEffect(() => {
+  //   document.title = "Todo";
+  // }, []);
+  useTitle("Todo");
   return (
     <div className="grid-temp">
       <div className="manage">

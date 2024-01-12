@@ -13,6 +13,7 @@ import LogOut from "../../Components/LogOut/LogOut";
 import Comment from "../../Components/Post/Comment";
 // import AddPost from "../../Components/Post/AddPost";
 import AddPost2 from "../../Components/Post/AddPost2";
+import Counter from "../../Components/Counter/Counter";
 const Home = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
   const handleShowMenu = (event) => {
@@ -55,6 +56,7 @@ const Home = () => {
             </Route>
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/todo" element={<Todo />} />
+            <Route path="/counter" element={<Counter />} />
             <Route path="/logout" element={<LogOut />} />
             <Route path="*" element={<User />} />
           </Routes>

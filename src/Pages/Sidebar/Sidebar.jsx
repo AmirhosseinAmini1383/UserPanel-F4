@@ -74,6 +74,19 @@ const Sidebar = () => {
         </div>
         <div className="div_li">
           <NavLink
+            to="/counter"
+            className={({ isActive }) => {
+              return isActive ? "active-nav" : "";
+            }}
+          >
+            <li className="li_content">
+              <img className="icon" src={Post} alt="post" />
+              Counter
+            </li>
+          </NavLink>
+        </div>
+        <div className="div_li">
+          <NavLink
             to="/logout"
             className={({ isActive }) => {
               return isActive ? "active-nav" : "";
